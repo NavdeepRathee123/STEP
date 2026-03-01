@@ -4,15 +4,29 @@ class OOPSBannerApp
     public static void main(String[] args)
     {
         Scanner sc=new Scanner(System.in);
-        String a[]=new String[5];
-        a[0]=(String.join("   "," ***** ", " ***** ", " ***** ", " ***** "));
-        a[1]=(String.join("   ","*     *", "*     *", "*     *", "*      "));
-        a[2]=(String.join("   ","*     *", "*     *", " ***** ", " ***** "));
-        a[3]=(String.join("   ","*     *", "*     *", "*      ", "      *"));
-        a[4]=(String.join("   "," ***** ", " ***** ", "*      ", " ***** "));
-        for(int i=0;i<5;i++)
+         String a[] = {
+            String.join("   ", 
+                "  ***  ", "  ***  ", "***** ", " ***** "),
+            String.join("   ", 
+                " *   * ", " *   * ", "*    *", "*      "),
+            String.join("   ", 
+                "*     *", "*     *", "*    *", "*      "),
+            String.join("   ", 
+                "*     *", "*     *", "***** ", " ***** "),
+            String.join("   ", 
+                "*     *", "*     *", "*     ", "      *"),
+            String.join("   ", 
+                "*     *", "*     *", "*     ", "      *"),
+            String.join("   ", 
+                "*     *", "*     *", "*     ", "      *"),
+            String.join("   ", 
+                " *   * ", " *   * ", "*     ", "      *"),
+            String.join("   ", 
+                "  ***  ", "  ***  ", "*     ", " ***** ")
+        };
+        for (String i : a) 
         {
-            System.out.println(a[i]);
+            System.out.println(i);
         }
     }
 }
