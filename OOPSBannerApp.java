@@ -1,50 +1,36 @@
 import java.util.*;
 class OOPSBannerApp 
 {
-    static class CharacterPattern 
-    {
-        char ch;
-        String[] pattern;
-        CharacterPattern(char ch, String[] pattern) 
-        {
-            this.ch = ch;
-            this.pattern = pattern;
-        }
-    }
     static class CharacterPatternMap 
     {
-        CharacterPattern[] map = 
+        HashMap<Character, String[]> map = new HashMap<>();
+        CharacterPatternMap() {
+            map.put('O', O());
+            map.put('P', P());
+            map.put('S', S());
+            map.put(' ', space());
+        }
+        String[] get(char ch) 
         {
-                new CharacterPattern('O', O()),
-                new CharacterPattern('P', P()),
-                new CharacterPattern('S', S()),
-                new CharacterPattern(' ', space())
-        };
-        String[] get(char c) 
-        {
-            for (CharacterPattern cp : map) 
-            {
-                if (cp.ch == c) return cp.pattern;
-            }
-            return space();
+            return map.getOrDefault(ch, space());
         }
     }
     public static void main(String[] args) 
     {
-        CharacterPatternMap map = new CharacterPatternMap();
+        CharacterPatternMap patternMap = new CharacterPatternMap();
         String msg = "OOPS";
-        String[] o1 = map.get('O');
-        String[] o2 = map.get('O');
-        String[] p  = map.get('P');
-        String[] s  = map.get('S');
+        String[] o1 = patternMap.get('O');
+        String[] o2 = patternMap.get('O');
+        String[] p  = patternMap.get('P');
+        String[] s  = patternMap.get('S');
         String[] finalRows = new String[9];
         for (int i = 0; i < 9; i++) 
         {
             finalRows[i] = String.join("   ", o1[i], o2[i], p[i], s[i]);
         }
-        for (String row : finalRows) 
+        for (String line : finalRows) 
         {
-            System.out.println(row);
+            System.out.println(line);
         }
     }
     public static String[] O() 
